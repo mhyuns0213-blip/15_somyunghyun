@@ -1,0 +1,102 @@
+C:\somyunghyun\04_react_fastapi_mysql\frontend_react_movie_recsys\src\api.js
+
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8000'
+})
+
+export async function fetchUsers(){
+  const { data } = await api.get('/api/users')
+  return data
+}
+
+export async function fetchRecommendations(userId, limit=12){
+  const { data } = await api.get('/api/recommend', { params: { user_id: userId, limit } })
+  return data
+}
+
+export async function fetchMovies(){
+  const { data } = await api.get('/api/movies?limit=100')
+  return data
+}
+
+export default api
+
+원본코드를 그대로 유지하고 주석으로 해설을 작성해줘
+'http://127.0.0.1:8000/' 의미에 대해서 자세하게 설명해줘
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+http://127.0.0.1:8000/api/users/4/ratings
+
+{
+  "user_id": 4,
+  "movie_id": 10,
+  "rating": 7.3
+}
+
+
+07_moviesdb기준CRUD프론트백앤드코드개선및실행분석문서
+
+현재기능) 
+회원리스트
+모든영화 검색
+
+여기까지 기능이 구현되어 있습니다.
+
+프로젝트명은 변경하지 않고 기존 프로젝트에
+
+회원 입력,수정,삭제,조회
+영화 입력,수정,삭제,조회
+회원이 영화별 평점 등록,수정,삭제,조회
+
+회원별로 영화번호,영화이름,영화평점 등이 조회
+영화별로 평점 평균 검색 등
+
+프론트와 백앤드 개선을 바이브코딩이 아닌 chatgpt or gemini 등 llm 도움을 받아서 해당 코드 개선을 통해서 구현해보세요!
+
+C:\leehyoungyeol\04_react_fastapi_mysql\backend_fastapi_movie_recsys
+
+C:\leehyoungyeol\04_react_fastapi_mysql\frontend_react_movie_recsys
+
+-----
+C:\leehyoungyeol\ftpserver\00개인별과제제출\05_DCL_DDL_DML포함mysql실습
+
+C:\leehyoungyeol\ftpserver\00개인별_과제제출\06moviesdb기준원본프론트백앤드분석문서
+
+C:\leehyoungyeol\ftpserver\00개인별_과제제출\07_moviesdb기준CRUD프론트백앤드코드개선및실행분석문서
+
+가능하면 9월14 월요일 오전9시까지 구글드라이브에 업로드 해주세요!
+
+
+db는 수정하지말고 기존 사용(날짜 칼럼 추가 등 X)
+6번은 분석문서만
+7번은 ai(gpt랑 제미나이 등 기본으로만 사용)한테 물어봐서 코드 개선 및 실행
+->중간중간 나오는 에러들 모두 캡쳐해보기
+->도저히 답 안나온다 싶으면 상담요청
+
+해서 구글 드라이브에 업로드
+
+
+구글클라우드\ftpserver\02이형열선생님공유자료\06_01_AI연결없이_react_pythonfastapi영화CRUD개선프론트_백앤드zip
+> 참고, DB 백업 방법도 안내되어 있음
+
+"C:\leehyoungyeol\ftpserver\02이형열선생님공유자료\06_01_AI연결없이_react_pythonfastapi영화CRUD개선프론트_백앤드zip\v2_06_01_AI연결없이_react_pythonfastapi영화CRUD개선프론트백앤드zip이형열.docx
+
+>참고
+
+
